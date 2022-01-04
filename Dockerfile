@@ -1,8 +1,8 @@
 FROM node:12
 USER node
-WORKDIR /app
-ADD . /app
-RUN chown -R 128:134 "/.npm"
+WORKDIR /usr/src/app
+COPY package*.json ./
+COPY . .
 RUN npm install
 EXPOSE 3000
-CMD npm start
+CMD [ "npm", "start" ]
